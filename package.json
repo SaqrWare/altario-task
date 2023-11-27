@@ -27,7 +27,9 @@
   },
   "scripts": {
     "test": "jest .",
-    "start-dev": "nodemon index.ts --exec ts-node"
+    "start-dev": "nodemon index.ts --exec ts-node",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
