@@ -14,3 +14,7 @@ Thumbs.db
 # User-specific files
 npm-debug.log
 yarn-error.log
+
+# Build
+dist/
+uploads/
