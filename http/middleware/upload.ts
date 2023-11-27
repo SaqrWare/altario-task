@@ -1,7 +1,8 @@
 import multer from 'multer';
 import path from 'path'
 import Errors from "../../constants/Errors";
-import { Request } from 'express';
+import {Request} from 'express';
+import {isCsvFile} from "../../utils/file";
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -13,8 +14,7 @@ const storage = multer.diskStorage({
 });
 
 const csvFileFilter = (req: Request, file: Express.Multer.File, cb: Function) => {
-    const extname = path.extname(file.originalname).toLowerCase();
-    if (extname === '.csv') {
+    if (isCsvFile(file.originalname)) {
         return cb(null, true);
     }
     cb(new Error(Errors.ONLY_CSV));
